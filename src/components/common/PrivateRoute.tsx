@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 export interface IPrivateRouteProps {}
 
 export function PrivateRoute(props: IPrivateRouteProps) {
-  let navigate = useNavigate();
   const isLoginIn = localStorage.getItem('access_token');
-  if (!isLoginIn) return navigate('/login');
+  if (!isLoginIn) return <Navigate to="/login"></Navigate>;
   return <div>PrivateRoute</div>;
 }
