@@ -1,8 +1,21 @@
+import { useSelect } from '@mui/base';
 import { Box, Button, Paper, Typography } from '@mui/material';
+import { useAppDispatch } from 'app/hooks';
 import * as React from 'react';
+import { authActions } from '../authSlice';
 export interface ILoginPageProps {}
 
 export default function LoginPage(props: ILoginPageProps) {
+  const dispatch = useAppDispatch();
+  const handleLoginClick = () => {
+    dispatch(
+      authActions.login({
+        username: '',
+        password: '',
+      })
+    );
+  };
+
   return (
     <div
       style={{
@@ -18,7 +31,12 @@ export default function LoginPage(props: ILoginPageProps) {
           Student Management
         </Typography>
         <Box mt={4}>
-          <Button fullWidth variant="contained" color="primary">
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={handleLoginClick}
+          >
             Fake login
           </Button>
         </Box>
