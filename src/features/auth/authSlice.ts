@@ -29,7 +29,7 @@ const authSlice = createSlice({
     loginSuccess(state, actions: PayloadAction<User>) {
       state.logging = false;
     },
-    loginFauled(state, actions: PayloadAction<string>) {
+    loginFailed(state, actions: PayloadAction<string>) {
       state.logging = false;
     },
     logout(state) {
